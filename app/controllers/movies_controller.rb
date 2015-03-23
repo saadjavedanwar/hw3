@@ -3,6 +3,17 @@ class MoviesController < ApplicationController
 
   def index
     @movies = Movie.all
+    @criteria =  params[:sort_by]
+    
+    if @criteria.nil?
+      @movies = Movie.all
+
+    else
+      begin
+        @movies = Movie.order("#{@criteria} ASC").all
+      end
+    end
+
   end
 
   def show
