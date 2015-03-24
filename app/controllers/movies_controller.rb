@@ -14,6 +14,8 @@ class MoviesController < ApplicationController
       end
     end
 
+    @all_ratings = ['G','R','PG','PG-13']
+
   end
 
   def show
